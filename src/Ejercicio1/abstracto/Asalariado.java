@@ -4,23 +4,16 @@ package Ejercicio1.abstracto;
 
         private String departamento;
         private int fechaIngreso;
-        private double porcBono;
+        private float porcBono;
 
         public Asalariado() {
         }
 
-        public Asalariado(int id, String nombre, String apellidos, double sueldo, String departamento, int fechaIngreso, double porcBono) {
+        public Asalariado(int id, String nombre, String apellidos, double sueldo, String departamento, int fechaIngreso, float porcBono) {
             super(id, nombre, apellidos, sueldo);
             this.departamento = departamento;
             this.fechaIngreso = fechaIngreso;
-        }
-
-        public int getFechaIngreso() {
-            return fechaIngreso;
-        }
-
-        public void setFechaIngreso(int fechaIngreso) {
-            this.fechaIngreso = fechaIngreso;
+            this.porcBono = porcBono;
         }
 
         public String getDepartamento() {
@@ -31,14 +24,21 @@ package Ejercicio1.abstracto;
             this.departamento = departamento;
         }
 
-        public double getPorcBono() {
+        public int getFechaIngreso() {
+            return fechaIngreso;
+        }
+
+        public void setFechaIngreso(int fechaIngreso) {
+            this.fechaIngreso = fechaIngreso;
+        }
+
+        public float getPorcBono() {
             return porcBono;
         }
 
-        public void setPorcBono(double porcBono) {
+        public void setPorcBono(float porcBono) {
             this.porcBono = porcBono;
         }
-
 
         @Override
         protected void calculateBono() {

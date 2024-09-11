@@ -6,9 +6,9 @@ public class PersonalAdmvo extends Asalariado {
 
     private double porcentajeBono;
 
-    public PersonalAdmvo(int id, String nombre, String apellidos, double sueldo, String departamento, int fechaIngreso, double porcBono, double porcentajeBono) {
-        super(id, nombre, apellidos, sueldo, departamento, fechaIngreso, porcBono);
-        this.porcentajeBono = porcentajeBono;
+    public PersonalAdmvo(int id, String nombre, String apellidos, double sueldo, String departamento, String fechaIngreso, float porcBono) {
+        super(id, nombre, apellidos, sueldo, departamento, Integer.parseInt(fechaIngreso), porcBono);
+
     }
 
     public double getPorcentajeBono() {
@@ -19,15 +19,14 @@ public class PersonalAdmvo extends Asalariado {
         this.porcentajeBono = porcentajeBono;
     }
 
-
     @Override
     protected void calculateBono() {
-        super.calculateBono();
-        porcentajeBono = getSueldo() * getPorcentajeBono();
+        porcentajeBono = getSueldo() * getPorcBono() / 100;
     }
 
-    public void mostrarSueldo(){
-        System.out.println("El sueldo del personal administrativo es: " + getSueldo());
-        System.out.println("El bono del personal administrativo es: " + porcentajeBono);
+
+    public void mostrarBono() {
+        calculateBono();
+        System.out.println("El personal " + getNombre() + " " + getApellidos() + " tiene un bono de: " + getPorcentajeBono() + "$ por su sueldo de: " + getSueldo() + "$");
     }
 }
